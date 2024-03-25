@@ -1,15 +1,24 @@
-const { BrowserWindow } = require("electron");
-function createWindow(width = 800, height = 600, resize = true) {
+const { BrowserWindow, app } = require("electron");
+const path = require("path");
+function createWindow(width = 800, height = 600, preload, resize = true) {
   const win = new BrowserWindow({
     width: width,
     height: height,
     resizable: resize,
+    titleBarStyle: "hidden",
     webPreferences: {
       sandbox: true,
       nodeIntegration: true,
+      preload: preload
+        ? path.join(app.getAppPath(), "bridge", preload)
+        : undefined,
     },
   });
   return win;
 }
 
-module.exports = {createWindow}
+function closeWindow(win) {
+  win.close();
+}
+
+module.exports = { createWindow };
