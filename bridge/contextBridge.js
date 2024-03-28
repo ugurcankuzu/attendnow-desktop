@@ -7,4 +7,7 @@ contextBridge.exposeInMainWorld("userEvents", {
   getJWTFromUserData: () => ipcRenderer.send("getJWTFromUserData"),
   onGetJWTFromUserData: (callback) =>
     ipcRenderer.on("JWTFromUserData", (event, jwtToken) => callback(jwtToken)),
+  getIPAddress: () => ipcRenderer.send("getIPAddress"),
+  onGetIPAddress: (callback) =>
+    ipcRenderer.on("IPAddress", (event, address) => callback(address)),
 });

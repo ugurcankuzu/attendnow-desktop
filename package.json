@@ -2,7 +2,8 @@
   "dependencies": {
     "electron": "^29.1.4",
     "electron-is-dev": "^3.0.1",
-    "express": "^4.18.3"
+    "express": "^4.18.3",
+    "ip": "^2.0.1"
   },
   "name": "attendnow",
   "version": "1.0.0",
