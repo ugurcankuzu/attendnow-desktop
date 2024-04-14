@@ -26,12 +26,13 @@ app.whenReady().then(() => {
   win.loadURL(sourceURL);
 });
 
-ipcMain.on("writeJWT", (event, jwtToken) => {
-  writeTokenInUserData(jwtToken);
+ipcMain.on("writeJWT", async (event, jwtToken) => {
+  await writeTokenInUserData(jwtToken);
+  BrowserWindow.getAllWindows()[0].webContents.send("writeJWTEnd");
 });
 
-ipcMain.on("getJWTFromUserData", () => {
-  const jwtToken = getTokenFromUserData();
+ipcMain.on("getJWTFromUserData", async () => {
+  const jwtToken = await getTokenFromUserData();
   BrowserWindow.getAllWindows()[0].webContents.send(
     "JWTFromUserData",
     jwtToken

@@ -4,6 +4,8 @@ contextBridge.exposeInMainWorld("userEvents", {
   writeJWT: (jwtToken) => {
     ipcRenderer.send("writeJWT", jwtToken);
   },
+  onWriteJWTEnd: (callback) =>
+    ipcRenderer.on("writeJWTEnd", (event) => callback()),
   getJWTFromUserData: () => ipcRenderer.send("getJWTFromUserData"),
   onGetJWTFromUserData: (callback) =>
     ipcRenderer.on("JWTFromUserData", (event, jwtToken) => callback(jwtToken)),
