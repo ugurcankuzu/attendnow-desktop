@@ -23,6 +23,8 @@ const getStudents = async () => {
       courseName: result.course.course.courseName,
       students: result.course.course.students,
     };
+  } else {
+    alert("We couldn't get the students from server. Please try again later.");
   }
 };
 
@@ -43,7 +45,9 @@ const sendAttendancy = async (studentId) => {
   );
   if (response.ok) {
     const result = await response.json();
-    alert("Başarılı");
+    alert("Successfully sent your attendancy. You can close this window.");
+  } else {
+    alert("You may already send attendancy for this session.");
   }
 };
 const fillSelect = () => {
