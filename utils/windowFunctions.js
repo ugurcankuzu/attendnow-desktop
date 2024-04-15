@@ -2,7 +2,7 @@ const { BrowserWindow, app } = require("electron");
 const path = require("path");
 function createWindow(width = 800, height = 600, preload, resize = true) {
   const win = new BrowserWindow({
-    icon: "../icons/icon.png",
+    icon: path.join(app.getAppPath(), "icons", "icon.icns"),
     width: width,
     height: height,
     resizable: resize,

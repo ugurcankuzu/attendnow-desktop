@@ -19,7 +19,7 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "icon": "/icons/icon"
+        "icon": "./icons/icon.icns"
       },
       "makers": [
         {

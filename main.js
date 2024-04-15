@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, Menu } = require("electron");
 const express = require("express");
 const path = require("path");
 const expressApp = express();
@@ -22,6 +22,18 @@ const sourceURL = "https://attendnow-front.vercel.app";
 
 app.whenReady().then(() => {
   const win = createWindow(1024, 768, "contextBridge.js", false);
+  Menu.setApplicationMenu(
+    Menu.buildFromTemplate([
+      {
+        label: app.name,
+        submenu: [
+          { role: "forceReload", label: "Reload Application" },
+          { type: "separator" },
+          { role: "quit", label: "Close AttendNow" },
+        ],
+      },
+    ])
+  );
 
   win.loadURL(sourceURL);
 });
