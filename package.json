@@ -5,7 +5,7 @@
     "express": "^4.18.3",
     "ip": "^2.0.1"
   },
-  "name": "attendnow",
+  "name": "AttendNow",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
