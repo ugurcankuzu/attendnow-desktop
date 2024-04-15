@@ -15,7 +15,7 @@ const getSessionId = () => {
 const getStudents = async () => {
   const sessionId = getSessionId();
   const response = await fetch(
-    "http://192.168.1.197:4000/student/?sessionId=" + sessionId
+    "https://attendnow-backend-dk3uswmi6a-lm.a.run.app/student/?sessionId=" + sessionId
   );
   if (response.ok) {
     const result = await response.json();
@@ -32,7 +32,7 @@ const sendAttendancy = async (studentId) => {
   const sessionId = getSessionId();
 
   const response = await fetch(
-    "http://192.168.1.197:4000/student/sendAttendancy",
+    "https://attendnow-backend-dk3uswmi6a-lm.a.run.app/student/sendAttendancy",
     {
       headers: { "Content-Type": "application/json" },
       method: "POST",
