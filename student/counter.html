@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AttendNow | Face Detection</title>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background: #fdf7fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        min-height: 100vh;
+        padding: 1rem;
+        box-sizing: border-box;
+        margin: 0;
+      }
+      .cardWrapper {
+        background-color: #fff;
+        border-radius: 0.375rem;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+          0 1px 2px -1px rgb(0 0 0 / 0.1);
+        padding: 1rem;
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+      }
+      .iconWrapper {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .iconWrapper img {
+        width: 30px;
+        background: linear-gradient(
+          135deg,
+          hsla(326, 52%, 76%, 1) 0%,
+          hsla(177, 43%, 76%, 1) 100%
+        );
+        padding: 1rem;
+        border-radius: 0.375rem;
+      }
+      .iconWrapper p {
+        font-size: large;
+        font-weight: 500;
+      }
+      .controllerGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .filePickerWrapper {
+        background: #fdf7fa;
+        padding: 0.75rem;
+        border: 1px dashed #000;
+        border-radius: 0.125rem;
+        box-sizing: border-box;
+      }
+      #result {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .note {
+        font-size: xx-small;
+        color: rgba(203, 213, 225, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cardWrapper">
+      <div class="iconWrapper">
+        <img src="assets/icon.svg" alt="AttendNow Icon" />
+        <p class="Description">Capture a photo</p>
+      </div>
+      <div class="controllerGroup">
+        <div class="filePickerWrapper">
+          <input type="file" capture="environment" />
+        </div>
+        <p id="result"></p>
+        <p class="note">
+          ! This feature is an experimental feature and powered by Google Cloud
+          Vision. So, results may be wrong with under some certain conditions
+          such as low lighting, crowded places etc.
+        </p>
+      </div>
+    </div>
+    <script src="./cloud.js"></script>
+  </body>
+</html>

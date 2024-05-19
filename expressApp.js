@@ -9,6 +9,9 @@ expressApp.use(express.static(path.join(__dirname, "student")));
 expressApp.get("/", (req, res) => {
   res.status(200).sendFile(path.join(__dirname, "index.html"));
 });
+expressApp.get("/counter", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname,"student", "counter.html"));
+});
 const server = expressApp.listen(port, (req, res) => {
   console.log("Starting server: ", port);
 });

@@ -19,7 +19,6 @@ const {
 } = require("./expressApp");
 global.ipcMain = ipcMain;
 const sourceURL = "https://attendnow-front.vercel.app";
-
 app.whenReady().then(() => {
   const win = createWindow(1024, 768, "contextBridge.js", false);
   Menu.setApplicationMenu(
